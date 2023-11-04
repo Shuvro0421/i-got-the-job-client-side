@@ -9,6 +9,7 @@ import {
 import Home from './components/Home';
 import Error from './components/Error';
 import Main from './components/Main';
+import Jobs from './components/Jobs';
 
 
 
@@ -21,15 +22,19 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Main></Main>
+      },
+      {
+        path: "/jobs",
+        element:<Jobs></Jobs>
       }
     ]
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <div className='bg-blue-100 text-black'> 
+  <div className='bg-blue-100 text-black '> 
     <React.StrictMode>
       <RouterProvider router={router} />
-    </React.StrictMode>,
+    </React.StrictMode>
   </div>
 )

@@ -1,4 +1,5 @@
 import Banner from "./Banner";
+import Jobs from "./Jobs";
 
 
 const Main = () => {
