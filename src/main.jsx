@@ -15,11 +15,11 @@ import Main from './components/Main';
 const router = createBrowserRouter([
   {
     path: "/",
-    errorElement: <Error></Error> ,
+    errorElement: <Error></Error>,
     element: <Home></Home>,
     children: [
       {
-        path:"/",
+        path: "/",
         element: <Main></Main>
       }
     ]
@@ -27,7 +27,9 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>,
+  <div className='bg-blue-100 text-black'> 
+    <React.StrictMode>
+      <RouterProvider router={router} />
+    </React.StrictMode>,
+  </div>
 )
