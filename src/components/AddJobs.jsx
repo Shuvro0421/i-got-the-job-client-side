@@ -50,7 +50,7 @@ const AddJobs = () => {
     }
     return (
         <div className=''>
-            <form className="mt-10 shadow-2xl m-2 rounded-lg bg-blue-300 bg-opacity-30" onSubmit={handleAddProduct}>
+            <form className="mt-28 shadow-2xl m-2 rounded-lg bg-blue-300 bg-opacity-30" onSubmit={handleAddProduct}>
                 <div className="grid md:grid-cols-2 gap-2 p-5 grid-cols-1 items-center justify-center ">
                     <input className="p-2 bg-gray-200 placeholder-slate-500 border-2 border-black mt-2 rounded-lg" type="text" name="image" id="" placeholder="picture url of job banner..." />
 

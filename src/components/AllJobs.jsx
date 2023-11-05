@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import AllJob from "./AllJob";
+import { TbMoodSearch } from 'react-icons/tb';
 
 
 const AllJobs = () => {
     const [allJobs, setAllJobs] = useState([]);
+    const [filteredJobs, setFilteredJobs] = useState([]);
+
 
     useEffect(() => {
         fetch('http://localhost:5000/jobs')
@@ -12,10 +15,25 @@ const AllJobs = () => {
             .catch(error => console.error('Error fetching jobs:', error));
     }, []);
 
+    const handleSearch = e => {
+        e.preventDefault()
+        const search = e.target.search.value
+        const filtered = allJobs.filter(job => job.title == search);
+        setFilteredJobs(filtered);
+    }
+
+    const jobsJobs = filteredJobs.length == 0 ? allJobs : filteredJobs
+
     return (
         <div>
+            <form onSubmit={handleSearch} className="form-control  flex relative md:flex-row flex-col md:justify-center md:items-center gap-2 mt-24 md:mx-0 mx-5">
+                <input type="text" name="search" placeholder="Search Jobs...." className="input text-slate-600 input-bordered w-full md:w-96" />
+                <div className="">
+                    <button type="submit" className="btn w-full"><TbMoodSearch></TbMoodSearch></button>
+                </div>
+            </form>
             {
-                allJobs.map((allJob, index) => <AllJob key={index} allJob={allJob}></AllJob>)
+                jobsJobs.map((allJob, index) => <AllJob key={index} allJob={allJob}></AllJob>)
             }
         </div>
     );
