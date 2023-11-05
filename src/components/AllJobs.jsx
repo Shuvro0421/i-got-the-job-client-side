@@ -18,7 +18,7 @@ const AllJobs = () => {
     const handleSearch = e => {
         e.preventDefault()
         const search = e.target.search.value
-        const filtered = allJobs.filter(job => job.title == search);
+        const filtered = allJobs.filter(job => job.title.toLowerCase() == search.toLowerCase());
         setFilteredJobs(filtered);
     }
 
