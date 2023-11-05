@@ -3,6 +3,11 @@ import Typed from 'react-typed'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import Jobs from './Jobs';
+import OnSiteJobs from './OnSiteJobs';
+import RemoteJobs from './RemoteJobs';
+import Hybrids from './Hybrids';
+import PartTimes from './PartTimes';
+
 
 const Banner = () => {
     return (
@@ -38,7 +43,16 @@ const Banner = () => {
                     <Jobs></Jobs>
                 </TabPanel>
                 <TabPanel>
-                    <h2>Any content 2</h2>
+                    <OnSiteJobs></OnSiteJobs>
+                </TabPanel>
+                <TabPanel>
+                    <RemoteJobs></RemoteJobs>
+                </TabPanel>
+                <TabPanel>
+                    <Hybrids></Hybrids>
+                </TabPanel>
+                <TabPanel>
+                    <PartTimes></PartTimes>
                 </TabPanel>
             </Tabs>
         </div>
