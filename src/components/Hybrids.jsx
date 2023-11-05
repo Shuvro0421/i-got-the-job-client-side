@@ -9,8 +9,8 @@ const Hybrids = () => {
         fetch('http://localhost:5000/jobs')
             .then(res => res.json())
             .then(data => {
-                const partTimeJobs = data.filter(job => job.category === "On Site Job");
-                setHybrids(partTimeJobs)
+                const filterJobs = data.filter(job => job.category === "hybrid");
+                setHybrids(filterJobs)
             })
             .catch(error => console.error('Error fetching jobs:', error));
     }, []);

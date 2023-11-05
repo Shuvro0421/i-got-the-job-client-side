@@ -5,10 +5,10 @@ import 'react-tabs/style/react-tabs.css';
 const Header = () => {
     const links =
         <>
-            <li><Link>Home</Link></li>
-            <li><Link>All Jobs</Link></li>
+            <li><Link to={'/'}>Home</Link></li>
+            <li><Link to={'/allJobs'}>All Jobs</Link></li>
             <li><Link>Applied Jobs</Link></li>
-            <li><Link>Add a Job</Link></li>
+            <li><Link to={'/addJobs'}>Add a Job</Link></li>
             <li><Link>My Jobs</Link></li>
             <li><Link>Blogs</Link></li>
         </>

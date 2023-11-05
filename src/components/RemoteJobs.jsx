@@ -9,8 +9,8 @@ const RemoteJobs = () => {
         fetch('http://localhost:5000/jobs')
             .then(res => res.json())
             .then(data => {
-                const partTimeJobs = data.filter(job => job.category === "Remote Job");
-                setRemoteJobs(partTimeJobs)
+                const filterJobs = data.filter(job => job.category === "remote job");
+                setRemoteJobs(filterJobs)
             })
             .catch(error => console.error('Error fetching jobs:', error));
     }, []);

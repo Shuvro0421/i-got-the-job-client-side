@@ -31,7 +31,7 @@ const Banner = () => {
 
             </div>
             <Tabs className={' md:text-base text-xs text-center'}>
-                <TabList className={'text-blue-500 font-semibold'}>
+                <TabList className={'text-blue-500 font-semibold'} >
                     <Tab>All Jobs</Tab>
                     <Tab>On Site Job</Tab>
                     <Tab>Remote Job</Tab>
