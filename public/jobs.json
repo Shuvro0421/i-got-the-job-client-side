@@ -1,74 +1,82 @@
 [
     {
-        "Category": "On Site Job",
-        "Name": "ABC Company",
-        "JobTitle": "On-Site Software Engineer",
-        "JobPostingDate": "2023-10-15",
-        "ApplicationDeadline": "2023-11-30",
-        "SalaryRange": "$60,000 - $80,000",
-        "JobApplicantsNumber": 50
+        "name": "John Doe",
+        "category": "On Site Job",
+        "companyname": "ABC Company",
+        "jobtitle": "On-Site Software Engineer",
+        "jobpostingdate": "2023-10-15",
+        "applicationdeadline": "2023-11-30",
+        "salaryrange": "$60,000 - $80,000",
+        "jobapplicantsnumber": 0
     },
     {
-        "Category": "On Site Job",
-        "Name": "XYZ Corporation",
-        "JobTitle": "On-Site Marketing Specialist",
-        "JobPostingDate": "2023-10-20",
-        "ApplicationDeadline": "2023-12-05",
-        "SalaryRange": "$45,000 - $55,000",
-        "JobApplicantsNumber": 35
+        "name": "Emily Johnson",
+        "category": "On Site Job",
+        "companyname": "XYZ Corporation",
+        "jobtitle": "On-Site Marketing Specialist",
+        "jobpostingdate": "2023-10-20",
+        "applicationdeadline": "2023-12-05",
+        "salaryrange": "$45,000 - $55,000",
+        "jobapplicantsnumber": 0
     },
     {
-        "Category": "Remote Job",
-        "Name": "Tech Innovators Inc.",
-        "JobTitle": "Remote Frontend Developer",
-        "JobPostingDate": "2023-10-25",
-        "ApplicationDeadline": "2023-12-10",
-        "SalaryRange": "$70,000 - $90,000",
-        "JobApplicantsNumber": 80
+        "name": "Adam Smith",
+        "category": "Remote Job",
+        "companyname": "Tech Innovators Inc.",
+        "jobtitle": "Remote Frontend Developer",
+        "jobpostingdate": "2023-10-25",
+        "applicationdeadline": "2023-12-10",
+        "salaryrange": "$70,000 - $90,000",
+        "jobapplicantsnumber": 0
     },
     {
-        "Category": "Remote Job",
-        "Name": "Digital Marketing Solutions Co.",
-        "JobTitle": "Remote Social Media Manager",
-        "JobPostingDate": "2023-11-01",
-        "ApplicationDeadline": "2023-12-20",
-        "SalaryRange": "$50,000 - $65,000",
-        "JobApplicantsNumber": 60
+        "name": "Sarah Thompson",
+        "category": "Remote Job",
+        "companyname": "Digital Marketing Solutions Co.",
+        "jobtitle": "Remote Social Media Manager",
+        "jobpostingdate": "2023-11-01",
+        "applicationdeadline": "2023-12-20",
+        "salaryrange": "$50,000 - $65,000",
+        "jobapplicantsnumber": 0
     },
     {
-        "Category": "Hybrid",
-        "Name": "InnovateTech Ltd.",
-        "JobTitle": "Hybrid Project Manager",
-        "JobPostingDate": "2023-11-05",
-        "ApplicationDeadline": "2023-12-15",
-        "SalaryRange": "$80,000 - $100,000",
-        "JobApplicantsNumber": 45
+        "name": "Michael Anderson",
+        "category": "Hybrid",
+        "companyname": "InnovateTech Ltd.",
+        "jobtitle": "Hybrid Project Manager",
+        "jobpostingdate": "2023-11-05",
+        "applicationdeadline": "2023-12-15",
+        "salaryrange": "$80,000 - $100,000",
+        "jobapplicantsnumber": 0
     },
     {
-        "Category": "Hybrid",
-        "Name": "E-Commerce Solutions Group",
-        "JobTitle": "Hybrid UX/UI Designer",
-        "JobPostingDate": "2023-11-10",
-        "ApplicationDeadline": "2023-12-25",
-        "SalaryRange": "$60,000 - $75,000",
-        "JobApplicantsNumber": 55
+        "name": "Olivia Brown",
+        "category": "Hybrid",
+        "companyname": "E-Commerce Solutions Group",
+        "jobtitle": "Hybrid UX/UI Designer",
+        "jobpostingdate": "2023-11-10",
+        "applicationdeadline": "2023-12-25",
+        "salaryrange": "$60,000 - $75,000",
+        "jobapplicantsnumber": 0
     },
     {
-        "Category": "Part Time",
-        "Name": "StartUp Innovations LLC",
-        "JobTitle": "Part-Time Content Writer",
-        "JobPostingDate": "2023-11-15",
-        "ApplicationDeadline": "2023-12-30",
-        "SalaryRange": "$20 - $25 per hour",
-        "JobApplicantsNumber": 25
+        "name": "David Wilson",
+        "category": "Part Time",
+        "companyname": "StartUp Innovations LLC",
+        "jobtitle": "Part-Time Content Writer",
+        "jobpostingdate": "2023-11-15",
+        "applicationdeadline": "2023-12-30",
+        "salaryrange": "$20 - $25 per hour",
+        "jobapplicantsnumber": 0
     },
     {
-        "Category": "Part Time",
-        "Name": "Healthcare Services Co.",
-        "JobTitle": "Part-Time Nurse",
-        "JobPostingDate": "2023-11-20",
-        "ApplicationDeadline": "2024-01-05",
-        "SalaryRange": "$30 - $35 per hour",
-        "JobApplicantsNumber": 30
+        "name": "Sophia Garcia",
+        "category": "Part Time",
+        "companyname": "Healthcare Services Co.",
+        "jobtitle": "Part-Time Nurse",
+        "jobpostingdate": "2023-11-20",
+        "applicationdeadline": "2024-01-05",
+        "salaryrange": "$30 - $35 per hour",
+        "jobapplicantsnumber": 0
     }
 ]
