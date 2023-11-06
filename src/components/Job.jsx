@@ -13,7 +13,7 @@ const Job = ({ job }) => {
                             <p><span className="font-medium">Company Name:</span> {companyName}</p>
                             <p><span className="font-medium">Posted By:</span> {name}</p>
                             <p><span className="font-medium">Job Posting Date:</span> {postingDate}</p>
-                            <p><span className="font-medium">Job Posting Date:</span> {applicationDeadline}</p>
+                            <p><span className="font-medium">Job Deadline:</span> {applicationDeadline}</p>
                             <p><span className="font-medium">Salary Range:</span> {salary}</p>
                             <p><span className="font-medium">job Applicants Number:</span> {applicantsNumber}</p>
                         </div>

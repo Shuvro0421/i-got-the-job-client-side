@@ -27,7 +27,7 @@ const Header = () => {
             <li><Link to={'/allJobs'}>All Jobs</Link></li>
             <li><Link>Applied Jobs</Link></li>
             <li><Link to={'/addJobs'}>Add a Job</Link></li>
-            <li><Link>My Jobs</Link></li>
+            <li><Link to={'/myJobs'}>My Jobs</Link></li>
             <li><Link>Blogs</Link></li>
         </>
     return (

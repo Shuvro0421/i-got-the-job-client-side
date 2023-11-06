@@ -3,10 +3,13 @@ import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
+import { useContext } from 'react';
+import { AuthContext } from './AuthProvider';
 
 const AddJobs = () => {
     const [startDate, setStartDate] = useState(new Date())
     const [startDate2, setStartDate2] = useState(new Date())
+    const {user} = useContext(AuthContext)
     const handleAddProduct = e => {
         e.preventDefault()
         const form = e.target
@@ -58,12 +61,12 @@ const AddJobs = () => {
 
                     <input className="p-2 bg-gray-200 placeholder-slate-500 border-2 border-black mt-2 rounded-lg" type="text" name="title" id="" placeholder="job title..." />
 
-                    <input className="p-2 bg-gray-200 placeholder-slate-500 border-2 border-black mt-2 rounded-lg" type="text" name="name" id="" placeholder="user name..." />
+                    <input className="p-2 bg-gray-200 placeholder-slate-500 border-2 border-black mt-2 rounded-lg" type="text" name="name" id="" defaultValue={user?.displayName ? user.displayName : 'no name'} />
 
                     <input className="p-2 bg-gray-200 placeholder-slate-500 border-2 border-black mt-2 rounded-lg" type="text" name="companyName" id="" placeholder="company name..." />
 
 
-                    <select className="bg-gray-200 p-2 border-2 border-black rounded-lg" name="category">
+                    <select className="bg-gray-200 p-2 border-2 border-black rounded-lg" name="category" required>
                         <option className="" value="category" selected>job category...</option>
                         <option value="on site job">on site job</option>
                         <option value="remote job">remote job</option>
