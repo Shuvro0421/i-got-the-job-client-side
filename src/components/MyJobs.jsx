@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
 import { RiDeleteBin5Line } from 'react-icons/ri';
 import { BiEditAlt } from 'react-icons/bi';
-
-import UpdateJob from "./UpdateJob";
+import Swal from 'sweetalert2'
 
 
 

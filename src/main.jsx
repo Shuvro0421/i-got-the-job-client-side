@@ -17,6 +17,7 @@ import AuthProvider from './components/AuthProvider';
 import Register from './components/Register';
 import MyJobs from './components/MyJobs';
 import UpdateJob from './components/UpdateJob';
+import AppliedJobs from './components/AppliedJobs';
 
 
 
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
         path:"/singleJob/:id",
         element: <UpdateJob></UpdateJob>,
         loader: ({ params }) => fetch(`http://localhost:5000/jobs/singleJob/${params.id}`),
+      },
+      {
+        path: "/appliedJobs",
+        element: <AppliedJobs></AppliedJobs>
       }
     ]
   },
