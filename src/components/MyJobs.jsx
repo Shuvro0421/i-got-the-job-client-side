@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
 import { RiDeleteBin5Line } from 'react-icons/ri';
 import { BiEditAlt } from 'react-icons/bi';
-import Swal from 'sweetalert2'
+
+import UpdateJob from "./UpdateJob";
 
 
 
@@ -12,6 +13,7 @@ const MyJobs = () => {
     const { user } = useContext(AuthContext);
     const [allJobs, setAllJobs] = useState([]);
     const [myJobs, setMyJobs] = useState([]);
+
 
     useEffect(() => {
         fetch('http://localhost:5000/jobs')
@@ -28,6 +30,7 @@ const MyJobs = () => {
             setMyJobs(filteredJobs);
         }
     }, [allJobs, user?.displayName]);
+
 
     const handleDelete = _id => {
         Swal.fire({
@@ -59,6 +62,8 @@ const MyJobs = () => {
         })
 
     }
+
+    
 
     return (
         <div className="mt-24">
@@ -99,8 +104,8 @@ const MyJobs = () => {
                                                         <RiDeleteBin5Line></RiDeleteBin5Line>
 
                                                     </div>
-                                                    <div className="btn btn-ghost text-base hover:text-slate-500 hover:bg-blue-200">
-                                                        <BiEditAlt></BiEditAlt>
+                                                    <div onClick={() => document.getElementById('my_modal_4').showModal()} className="btn btn-ghost text-base hover:text-slate-500 hover:bg-blue-200">
+                                                        <Link to={`/singleJob/${myJob._id}`}><BiEditAlt></BiEditAlt></Link>
                                                     </div>
                                                 </div>
                                             </td>
