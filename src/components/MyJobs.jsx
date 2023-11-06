@@ -1,7 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
-import MyJob from "./MyJob";
+import { RiDeleteBin5Line } from 'react-icons/ri';
+import { BiEditAlt } from 'react-icons/bi';
+import Swal from 'sweetalert2'
+
+
+
 
 const MyJobs = () => {
     const { user } = useContext(AuthContext);
@@ -24,17 +29,48 @@ const MyJobs = () => {
         }
     }, [allJobs, user?.displayName]);
 
+    const handleDelete = _id => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/jobs/${_id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your item has been deleted.',
+                                'success'
+                            )
+                            const deleteGone = myJobs.filter(singleCart => singleCart._id !== _id)
+                            setMyJobs(deleteGone)
+                        }
+                    })
+            }
+        })
+
+    }
+
     return (
         <div className="mt-24">
             {
                 myJobs.length > 0 ? (
                     <div>
                         <div className="overflow-x-auto">
-                            <table className="table">
+                            <table className="table  shadow-2xl rounded-lg mt-10 w-4/5  m-auto text-center">
                                 {/* head */}
                                 <thead>
                                     <tr>
-                                        <th></th>
+
                                         <th className="">Title</th>
                                         <th className="">Company name</th>
                                         <th className="">Posted By</th>
@@ -42,13 +78,14 @@ const MyJobs = () => {
                                         <th className="">Job Deadline</th>
                                         <th className="">Salary Range</th>
                                         <th className="">Job Applicants Number</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody className="text-blue-500 font-semibold">
                                     {/* row  */}
                                     {
                                         myJobs.map((myJob, index) => <tr key={index}>
-                                            <td>{index + 1}</td>
+
                                             <td className="">{myJob.title}</td>
                                             <td className="">{myJob.companyName}</td>
                                             <td className="">{myJob.name}</td>
@@ -56,6 +93,17 @@ const MyJobs = () => {
                                             <td className="">{myJob.applicationDeadline}</td>
                                             <td className="">{myJob.salary}</td>
                                             <td className="">{myJob.applicantsNumber}</td>
+                                            <td>
+                                                <div className="flex justify-between">
+                                                    <div onClick={() => handleDelete(myJob._id)} className="btn  btn-ghost text-base hover:text-red-500 hover:bg-blue-200">
+                                                        <RiDeleteBin5Line></RiDeleteBin5Line>
+
+                                                    </div>
+                                                    <div className="btn btn-ghost text-base hover:text-slate-500 hover:bg-blue-200">
+                                                        <BiEditAlt></BiEditAlt>
+                                                    </div>
+                                                </div>
+                                            </td>
                                         </tr>)
                                     }
                                 </tbody>

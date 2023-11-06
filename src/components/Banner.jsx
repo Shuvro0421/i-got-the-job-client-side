@@ -30,7 +30,7 @@ const Banner = () => {
                 </div>
 
             </div>
-            <Tabs className={' md:text-base text-xs text-center'}>
+            <Tabs className={' md:text-base text-xs text-center w-full h-1/2 overflow-auto'}>
                 <TabList className={'text-blue-500 font-semibold'} >
                     <Tab>All Jobs</Tab>
                     <Tab>On Site Job</Tab>
