@@ -8,7 +8,7 @@ const Job = ({ job }) => {
             <div className="card card-compact bg-base-100 shadow-xl m-5">
                 <div className="md:flex-row flex flex-col gap-4 justify-between md:items-end items-center p-4">
                     <div>
-                        <h2 className="card-title text-blue-500">{title}</h2>
+                        <h2 className="text-xl font-semibold md:text-left text-center text-blue-500">{title}</h2>
                         <div className="md:text-left text-center">
                             <p><span className="font-medium">Company Name:</span> {companyName}</p>
                             <p><span className="font-medium">Posted By:</span> {name}</p>

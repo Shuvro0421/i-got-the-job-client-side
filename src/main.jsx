@@ -9,10 +9,12 @@ import {
 import Home from './components/Home';
 import Error from './components/Error';
 import Main from './components/Main';
-import Jobs from './components/Jobs';
 import AllJobs from './components/AllJobs';
 import ViewDetails from './components/ViewDetails';
 import AddJobs from './components/AddJobs';
+import Login from './components/Login';
+import AuthProvider from './components/AuthProvider';
+import Register from './components/Register';
 
 
 
@@ -28,7 +30,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/allJobs",
-        element:<AllJobs></AllJobs>
+        element: <AllJobs></AllJobs>
       },
       {
         path: "/viewDetails/:id",
@@ -37,15 +39,25 @@ const router = createBrowserRouter([
       {
         path: "/addJobs",
         element: <AddJobs></AddJobs>
+      },
+      {
+        path: "/login",
+        element: <Login></Login>
+      },
+      {
+        path: "/register",
+        element: <Register></Register>
       }
     ]
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <div className='bg-blue-100 text-black '> 
+  <div className='bg-blue-100 text-black '>
     <React.StrictMode>
-      <RouterProvider router={router} />
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
     </React.StrictMode>
   </div>
 )
