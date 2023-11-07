@@ -1,7 +1,6 @@
-import { useContext, useEffect, useState } from "react";
+import  { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
-
 
 const AppliedJobs = () => {
     const { user } = useContext(AuthContext);
@@ -23,13 +22,21 @@ const AppliedJobs = () => {
     };
 
     useEffect(() => {
-        const filteredJobs = selectedCategory !== "all" ?
-            allJobs.filter(job => job.category === selectedCategory) :
+        if (allJobs.length > 0) {
+            const filteredJobs = allJobs.filter(job => job?.name === user?.displayName);
+            setMyJobs(filteredJobs);
+        }
+    }, [allJobs, user?.displayName]);
+
+    useEffect(() => {
+        const filteredJobsByCategory = selectedCategory !== "all" ?
+            allJobs.filter(job => job?.category === selectedCategory) :
             allJobs;
-        setMyJobs(filteredJobs);
-    }, [selectedCategory, allJobs]);
 
+        const filteredJobsByUserAndCategory = filteredJobsByCategory.filter(job => job?.name === user?.displayName);
 
+        setMyJobs(filteredJobsByUserAndCategory);
+    }, [selectedCategory, allJobs, user?.displayName]);
 
     return (
         <div className="mt-24">
@@ -52,7 +59,6 @@ const AppliedJobs = () => {
                                 {/* head */}
                                 <thead>
                                     <tr>
-
                                         <th className="">Title</th>
                                         <th className="">Company name</th>
                                         <th className="">Category</th>
@@ -65,16 +71,17 @@ const AppliedJobs = () => {
                                 <tbody className="text-blue-500 font-semibold">
                                     {/* row  */}
                                     {
-                                        myJobs.map((myJob, index) => <tr key={index}>
-
-                                            <td className="">{myJob.title}</td>
-                                            <td className="">{myJob.companyName}</td>
-                                            <td className="">{myJob.category}</td>
-                                            <td className="">{myJob.name}</td>
-                                            <td className="">{myJob.salary}</td>
-                                            <td className="">{myJob.email}</td>
-                                            <td className="">{myJob.resume}</td>
-                                        </tr>)
+                                        myJobs.map((myJob, index) => (
+                                            <tr key={index}>
+                                                <td className="">{myJob.title}</td>
+                                                <td className="">{myJob.companyName}</td>
+                                                <td className="">{myJob.category}</td>
+                                                <td className="">{myJob.name}</td>
+                                                <td className="">{myJob.salary}</td>
+                                                <td className="">{myJob.email}</td>
+                                                <td className="">{myJob.resume}</td>
+                                            </tr>
+                                        ))
                                     }
                                 </tbody>
                             </table>
