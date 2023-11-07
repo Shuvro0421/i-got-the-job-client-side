@@ -11,8 +11,8 @@ const PrivateRoute = ({ children }) => {
     console.log(location.pathname)
 
     if (loading) {
-        return <div className="flex items-center justify-center md:my-96 my-60">
-            <span className="loading text-blue-500 loading-spinner loading-lg"></span>
+        return <div className="flex items-center justify-center my-40">
+            <img className="w-96" src="https://i.ibb.co/618PjDM/octo-loader-unscreen.gif" alt="" />
         </div>
     }
     if (user) {

@@ -1,7 +1,12 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "./AuthProvider";
 
 const Hybrid = ({ hybrid }) => {
-    const {_id, name, companyName, title, postingDate, applicationDeadline, salary, applicantsNumber }  = hybrid
+
+    const { user } = useContext(AuthContext)
+
+    const { _id, name, companyName, title, postingDate, applicationDeadline, salary, applicantsNumber } = hybrid
     return (
         <div>
             <div className="card card-compact bg-base-100 shadow-xl m-5">
@@ -18,8 +23,27 @@ const Hybrid = ({ hybrid }) => {
                         </div>
                     </div>
                     <div className="card-actions justify-end">
-                        <Link to={`/viewDetails/${_id}`}><button className="btn btn-ghost text-blue-500 hover:text-white normal-case">View Details</button></Link>
+                        {
+                            user ? (<Link to={`/viewDetails/${_id}`}><button className="btn btn-ghost text-blue-500 hover:text-white normal-case">View Details</button></Link>) : (<div>
+                                <button onClick={() => document.getElementById('my_modal_1').showModal()} className="btn btn-ghost text-blue-500 hover:text-white normal-case">View Details</button>
+                            </div>)
+                        }
                     </div>
+                    {/* Open the modal using document.getElementById('ID').showModal() method */}
+
+                    <dialog id="my_modal_1" className="modal">
+                        <div className="modal-box">
+                            <h3 className="text-left text-xl text-blue-500 font-semibold">Stop right there</h3>
+                            <p className="text-left py-4 font-semibold">You should <span> <Link className="text-blue-500 underline" to={'/login'}>login</Link> </span> first <br /><br /> Or if you do not have account then you can <span> <Link className="text-blue-500 underline" to={'/register'}>register</Link> </span></p>
+                            <div className="modal-action">
+                                <form method="dialog">
+                                    {/* if there is a button in form, it will close the modal */}
+                                    <button className="btn btn-outline hover:bg-blue-500 hover:border-blue-500 text-blue-500
+                                     hover:text-white">X</button>
+                                </form>
+                            </div>
+                        </div>
+                    </dialog>
                 </div>
             </div>
         </div>
