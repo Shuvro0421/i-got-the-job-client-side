@@ -28,7 +28,7 @@ const Header = () => {
             <li><Link to={'/appliedJobs'}>Applied Jobs</Link></li>
             <li><Link to={'/addJobs'}>Add a Job</Link></li>
             <li><Link to={'/myJobs'}>My Jobs</Link></li>
-            <li><Link>Blogs</Link></li>
+            <li><Link to={'/blogs'}>Blogs</Link></li>
         </>
     return (
         <div className="navbar rounded-none bg-slate-300 fixed z-20">

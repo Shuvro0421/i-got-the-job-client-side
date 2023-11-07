@@ -18,6 +18,7 @@ import Register from './components/Register';
 import MyJobs from './components/MyJobs';
 import UpdateJob from './components/UpdateJob';
 import AppliedJobs from './components/AppliedJobs';
+import Blogs from './components/Blogs';
 
 
 
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
       {
         path: "/appliedJobs",
         element: <AppliedJobs></AppliedJobs>
+      },
+      {
+        path: "/blogs",
+        element: <Blogs></Blogs>
       }
     ]
   },
