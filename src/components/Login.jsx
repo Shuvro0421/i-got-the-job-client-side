@@ -2,8 +2,10 @@ import { FcGoogle } from 'react-icons/fc';
 import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
+import useTitle from '../hooks/useTitle';
 
 const Login = () => {
+    useTitle('Login')
     const { signInUser, handleGoogleSignIn, user } = useContext(AuthContext)
     const [success, setSuccess] = useState('');
     const [error, setError] = useState('');

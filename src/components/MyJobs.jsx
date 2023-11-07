@@ -4,11 +4,13 @@ import { AuthContext } from "./AuthProvider";
 import { RiDeleteBin5Line } from 'react-icons/ri';
 import { BiEditAlt } from 'react-icons/bi';
 import Swal from 'sweetalert2'
+import useTitle from "../hooks/useTitle";
 
 
 
 
 const MyJobs = () => {
+    useTitle('My Jobs')
     const { user } = useContext(AuthContext);
     const [allJobs, setAllJobs] = useState([]);
     const [myJobs, setMyJobs] = useState([]);

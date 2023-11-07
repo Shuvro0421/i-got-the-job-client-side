@@ -5,8 +5,10 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useContext } from 'react';
 import { AuthContext } from './AuthProvider';
+import useTitle from '../hooks/useTitle';
 
 const AddJobs = () => {
+    useTitle('Add Jobs')
     const [startDate, setStartDate] = useState(new Date())
     const [startDate2, setStartDate2] = useState(new Date())
     const { user } = useContext(AuthContext)

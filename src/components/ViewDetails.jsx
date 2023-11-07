@@ -1,10 +1,12 @@
 import { useContext } from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import useTitle from "../hooks/useTitle";
 import { AuthContext } from "./AuthProvider";
 
 
 const ViewDetails = () => {
+    useTitle('View Details')
     // { image , logo , title, name, category, salary, postingDate, applicationDeadline, applicantsNumber, description , companyName }
     const [detail, setDetail] = useState([]);
     const { id } = useParams()
@@ -53,6 +55,7 @@ const ViewDetails = () => {
 
 
         const appliedJobs = {
+            jobId: detail._id,
             companyName,
             title,
             salary,

@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
+import useTitle from "../hooks/useTitle";
 
 
 const AllJob = ({ allJob }) => {
+    
     const { _id, name, companyName, title, postingDate, applicationDeadline, salary, applicantsNumber } = allJob
     return (
         <div>

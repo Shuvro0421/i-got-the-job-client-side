@@ -1,6 +1,8 @@
+import useTitle from "../hooks/useTitle";
 
 
 const Blogs = () => {
+    useTitle('Blogs')
     return (
         <div className="mt-40 md:mx-20 mx-3">
             <div className="collapse collapse-arrow bg-blue-200 text-blue-500 font-semibold my-5">

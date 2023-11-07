@@ -1,8 +1,10 @@
 import  { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import useTitle from "../hooks/useTitle";
 import { AuthContext } from "./AuthProvider";
 
 const AppliedJobs = () => {
+    useTitle('Applied Jobs')
     const { user } = useContext(AuthContext);
     const [allJobs, setAllJobs] = useState([]);
     const [myJobs, setMyJobs] = useState([]);

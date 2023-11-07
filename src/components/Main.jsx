@@ -1,8 +1,8 @@
+import useTitle from "../hooks/useTitle";
 import Banner from "./Banner";
-import Jobs from "./Jobs";
-
 
 const Main = () => {
+    useTitle('Home')
     return (
         <div>
             <Banner></Banner>

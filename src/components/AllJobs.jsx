@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import AllJob from "./AllJob";
 import { TbMoodSearch } from 'react-icons/tb';
+import useTitle from "../hooks/useTitle";
 
 
 const AllJobs = () => {
+    useTitle('All Jobs')
     const [allJobs, setAllJobs] = useState([]);
     const [filteredJobs, setFilteredJobs] = useState([]);
 

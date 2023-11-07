@@ -2,9 +2,10 @@ import { useState } from "react";
 import DatePicker from "react-datepicker";
 import { useLoaderData } from "react-router-dom";
 import Swal from 'sweetalert2'
+import useTitle from "../hooks/useTitle";
 
-const UpdateJob = ({ }) => {
-
+const UpdateJob = () => {
+    useTitle('Update Job')
     const initialJob = useLoaderData()
     const { _id, image, logo, title, name, category, salary, postingDate, applicationDeadline, description, companyName } = initialJob
     const [startDate, setStartDate] = useState(new Date(postingDate))
