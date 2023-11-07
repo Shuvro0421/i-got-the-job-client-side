@@ -77,6 +77,7 @@ const MyJobs = () => {
 
                                         <th className="">Title</th>
                                         <th className="">Company name</th>
+                                        <th className="">Category</th>
                                         <th className="">Posted By</th>
                                         <th className="">Job Posting Date</th>
                                         <th className="">Job Deadline</th>
@@ -92,6 +93,7 @@ const MyJobs = () => {
 
                                             <td className="">{myJob.title}</td>
                                             <td className="">{myJob.companyName}</td>
+                                            <td className="">{myJob.category}</td>
                                             <td className="">{myJob.name}</td>
                                             <td className="">{myJob.postingDate}</td>
                                             <td className="">{myJob.applicationDeadline}</td>

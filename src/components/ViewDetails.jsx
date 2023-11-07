@@ -45,15 +45,26 @@ const ViewDetails = () => {
         const form = e.target
         const title = form.title.value
         const salary = form.salary.value
+        const companyName = form.companyName.value
         const name = form.name.value
+        const category = form.category.value
         const email = form.email.value
         const resume = form.resume.value
 
-        const appliedJobs = { title, salary, name, email, resume }
+
+        const appliedJobs = {
+            companyName,
+            title,
+            salary,
+            category,
+            name,
+            email,
+            resume
+        };
 
         setSuccess('')
         // send data to the server 
-        fetch('http://localhost:5000/appliedJobs', {
+        fetch(`http://localhost:5000/appliedJobs`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -93,6 +104,14 @@ const ViewDetails = () => {
                                 <div className="flex flex-col items-start justify-center">
                                     <h1 className="text-blue-500 font-semibold">Title:</h1>
                                     <input className="p-2 w-full text-blue-500 font-semibold bg-blue-300 placeholder-slate-500 mt-2 rounded-lg" type="text" name="title" id="" value={detail?.title} />
+                                </div>
+                                <div className="flex flex-col items-start justify-center mt-5">
+                                    <h1 className="text-blue-500 font-semibold">Title:</h1>
+                                    <input className="p-2 w-full text-blue-500 font-semibold bg-blue-300 placeholder-slate-500 mt-2 rounded-lg" type="text" name="companyName" id="" value={detail?.companyName} />
+                                </div>
+                                <div className="flex flex-col items-start justify-center mt-5">
+                                    <h1 className="text-blue-500 font-semibold">Category:</h1>
+                                    <input className="p-2 w-full text-blue-500 font-semibold bg-blue-300 placeholder-slate-500 mt-2 rounded-lg" type="text" name="category" id="" value={detail?.category} />
                                 </div>
                                 <div className="flex flex-col items-start justify-center mt-5">
                                     <h1 className="text-blue-500 font-semibold">Salary:</h1>
