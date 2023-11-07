@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
-import useTitle from "../hooks/useTitle";
 
 
 const AllJob = ({ allJob }) => {
     
-    const { _id, name, companyName, title, postingDate, applicationDeadline, salary, applicantsNumber } = allJob
+    
+
+    const { _id, category , name, companyName, title, postingDate, applicationDeadline, salary, applicantsNumber } = allJob
     return (
         <div>
             <div className="card card-compact bg-base-100 shadow-xl m-5">
@@ -14,6 +15,7 @@ const AllJob = ({ allJob }) => {
                         <div className="md:text-left text-center">
                             <p><span className="font-medium">Company Name:</span> {companyName}</p>
                             <p><span className="font-medium">Posted By:</span> {name}</p>
+                            <p><span className="font-medium">Category:</span> {category}</p>
                             <p><span className="font-medium">Job Posting Date:</span> {postingDate}</p>
                             <p><span className="font-medium">Job Deadline:</span> {applicationDeadline}</p>
                             <p><span className="font-medium">Salary Range:</span> {salary}</p>

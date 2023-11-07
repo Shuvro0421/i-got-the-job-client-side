@@ -1,9 +1,11 @@
-import  { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useTitle from "../hooks/useTitle";
 import { AuthContext } from "./AuthProvider";
+import { usePDF } from 'react-to-pdf';
 
 const AppliedJobs = () => {
+    const { toPDF, targetRef } = usePDF({ filename: 'appliedJobs.pdf' });
     useTitle('Applied Jobs')
     const { user } = useContext(AuthContext);
     const [allJobs, setAllJobs] = useState([]);
@@ -45,18 +47,23 @@ const AppliedJobs = () => {
             {
                 myJobs.length > 0 ? (
                     <div>
-                        <div className="flex items-center ml-4">
-                            <label className="text-blue-500 font-semibold" htmlFor="category">Category:</label>
-                            <select className="ml-2 rounded-md text-blue-500 font-semibold bg-transparent" name="category" id="category" onChange={handleCategoryChange} value={selectedCategory}>
-                                <option value="all">all</option>
-                                <option value="on site job">on site job</option>
-                                <option value="part time">part time</option>
-                                <option value="remote job">remote job</option>
-                                <option value="hybrid">hybrid</option>
-                            </select>
+                        <div className="flex items-center justify-between mx-4">
+                            <div className="flex items-center ml-4">
+                                <label className="text-blue-500 font-semibold" htmlFor="category">Category:</label>
+                                <select className="ml-2 rounded-md text-blue-500 font-semibold bg-transparent" name="category" id="category" onChange={handleCategoryChange} value={selectedCategory}>
+                                    <option value="all">all</option>
+                                    <option value="on site job">on site job</option>
+                                    <option value="part time">part time</option>
+                                    <option value="remote job">remote job</option>
+                                    <option value="hybrid">hybrid</option>
+                                </select>
+                            </div>
+                            <div>
+                                <button className="btn btn-outline normal-case text-sm border-blue-500 text-blue-500 hover:text-white hover:bg-blue-500 hover:border-none" onClick={() => toPDF()}>Download PDF</button>
+                            </div>
                         </div>
 
-                        <div className="overflow-x-auto">
+                        <div ref={targetRef} className="overflow-x-auto">
                             <table className="table  shadow-2xl rounded-lg mt-10 w-4/5  m-auto text-center">
                                 {/* head */}
                                 <thead>
@@ -96,6 +103,7 @@ const AppliedJobs = () => {
                     </div>
                 )
             }
+            
         </div>
     );
 };
