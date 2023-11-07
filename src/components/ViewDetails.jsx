@@ -55,6 +55,7 @@ const ViewDetails = () => {
 
 
         const appliedJobs = {
+            applicantsNumber: parseInt(detail.applicantsNumber),
             jobId: detail._id,
             companyName,
             title,
