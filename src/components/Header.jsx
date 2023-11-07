@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import 'react-tabs/style/react-tabs.css';
 import noUser from '../assets/images/no-user-image-icon-3.jpg'
@@ -8,6 +8,7 @@ import { AuthContext } from "./AuthProvider";
 const Header = () => {
     const { user, logOut } = useContext(AuthContext)
     const navigate = useNavigate()
+    const location = useLocation()
 
     const handleLogOut = () => {
         logOut()
@@ -23,12 +24,12 @@ const Header = () => {
 
     const links =
         <>
-            <li><Link to={'/'}>Home</Link></li>
-            <li><Link to={'/allJobs'}>All Jobs</Link></li>
-            <li><Link to={'/appliedJobs'}>Applied Jobs</Link></li>
-            <li><Link to={'/addJobs'}>Add a Job</Link></li>
-            <li><Link to={'/myJobs'}>My Jobs</Link></li>
-            <li><Link to={'/blogs'}>Blogs</Link></li>
+            <li><Link className={location.pathname === '/' ? 'text-slate-800' : ''} to={'/'}>Home</Link></li>
+            <li><Link className={location.pathname === '/allJobs' ? 'text-slate-800' : ''} to={'/allJobs'}>All Jobs</Link></li>
+            <li><Link className={location.pathname === '/appliedJobs' ? 'text-slate-800' : ''} to={'/appliedJobs'}>Applied Jobs</Link></li>
+            <li><Link className={location.pathname === '/addJobs' ? 'text-slate-800' : ''} to={'/addJobs'}>Add a Job</Link></li>
+            <li><Link className={location.pathname === '/myJobs' ? 'text-slate-800' : ''} to={'/myJobs'}>My Jobs</Link></li>
+            <li><Link className={location.pathname === '/blogs' ? 'text-slate-800' : ''} to={'/blogs'}>Blogs</Link></li>
         </>
     return (
         <div className="navbar rounded-none bg-slate-300 fixed z-20">

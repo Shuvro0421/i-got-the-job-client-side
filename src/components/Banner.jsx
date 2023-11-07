@@ -31,12 +31,12 @@ const Banner = () => {
 
             </div>
             <Tabs className={' md:text-base text-xs text-center w-full h-[800px] overflow-auto'}>
-                <TabList className={'text-blue-500 font-semibold'} >
-                    <Tab>All Jobs</Tab>
-                    <Tab>On Site Job</Tab>
-                    <Tab>Remote Job</Tab>
-                    <Tab>Hybrid</Tab>
-                    <Tab>Part Time</Tab>
+                <TabList className={'text-blue-500 font-semibold'}>
+                    <Tab selectedClassName="selected-tab">All Jobs</Tab>
+                    <Tab selectedClassName="selected-tab">On Site Job</Tab>
+                    <Tab selectedClassName="selected-tab">Remote Job</Tab>
+                    <Tab selectedClassName="selected-tab">Hybrid</Tab>
+                    <Tab selectedClassName="selected-tab">Part Time</Tab>
                 </TabList>
 
                 <TabPanel>
@@ -55,7 +55,7 @@ const Banner = () => {
                     <PartTimes></PartTimes>
                 </TabPanel>
             </Tabs>
-            
+
         </div>
     );
 };

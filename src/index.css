@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 13px;
   }
   
   /* Track */
@@ -25,6 +25,11 @@
     background: rgb(208, 207, 207); 
     border: 2px solid skyblue
   }
+
+  .selected-tab {
+    color: rgb(36, 38, 40); /* Change to the desired color */
+    /* Additional styles for the selected tab */
+}
 
 
 
