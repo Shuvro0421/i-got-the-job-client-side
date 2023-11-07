@@ -55,6 +55,7 @@ const Banner = () => {
                     <PartTimes></PartTimes>
                 </TabPanel>
             </Tabs>
+            
         </div>
     );
 };
