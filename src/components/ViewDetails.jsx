@@ -26,6 +26,20 @@ const ViewDetails = () => {
             .catch(error => console.error('Error fetching jobs:', error));
     }, [id]);
 
+    const [userApplied, setUserApplied] = useState(false);
+
+    useEffect(() => {
+        // Fetch the user's applied jobs (assuming this endpoint exists)
+        fetch(`http://localhost:5000/appliedJobs?userId=${user.id}`)
+            .then(res => res.json())
+            .then(appliedJobs => {
+                // Check if the user has already applied for the current job
+                const alreadyApplied = appliedJobs.some(job => job?.jobId === detail?._id);
+                setUserApplied(alreadyApplied);
+            })
+            .catch(error => console.error('Error fetching user\'s applied jobs:', error));
+    }, [detail?._id, user?.id]);
+
     const handleAddAppliedJob = e => {
         e.preventDefault()
         const today = new Date()
@@ -41,6 +55,10 @@ const ViewDetails = () => {
         }
         if (user.displayName === detail.name) {
             setError('You cannot apply in your own job');
+            return;
+        }
+        if (userApplied) {
+            setError('You have already applied for this job.');
             return;
         }
 
@@ -95,7 +113,7 @@ const ViewDetails = () => {
                     <div>
                         <h1 className="md:text-5xl text-3xl font-bold text-blue-500">{detail.title}</h1>
                         <p className=" text-white font-medium">{detail.description}</p>
-                        <div className="flex md:flex-row flex-col md:items-center items-start md:justify-between justify-center">
+                        <div className="flex md:flex-col flex-col md:items-start items-start md:justify-between justify-center">
                             <p className="mt-5 text-white font-medium">Salary: {detail.salary}</p>
                             <p className="mt-5 text-white font-medium">Applicants Number: {detail.applicantsNumber}</p>
                         </div>
@@ -110,7 +128,7 @@ const ViewDetails = () => {
                                     <input className="p-2 w-full text-blue-500 font-semibold bg-blue-300 placeholder-slate-500 mt-2 rounded-lg" type="text" name="title" id="" value={detail?.title} />
                                 </div>
                                 <div className="flex flex-col items-start justify-center mt-5">
-                                    <h1 className="text-blue-500 font-semibold">Title:</h1>
+                                    <h1 className="text-blue-500 font-semibold">Company Name:</h1>
                                     <input className="p-2 w-full text-blue-500 font-semibold bg-blue-300 placeholder-slate-500 mt-2 rounded-lg" type="text" name="companyName" id="" value={detail?.companyName} />
                                 </div>
                                 <div className="flex flex-col items-start justify-center mt-5">

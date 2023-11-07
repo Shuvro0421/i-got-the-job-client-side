@@ -67,7 +67,7 @@ const MyJobs = () => {
     
 
     return (
-        <div className="mt-24">
+        <div className="my-24">
             {
                 myJobs.length > 0 ? (
                     <div>
