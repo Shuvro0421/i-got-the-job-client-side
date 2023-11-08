@@ -7,9 +7,38 @@ import OnSiteJobs from './OnSiteJobs';
 import RemoteJobs from './RemoteJobs';
 import Hybrids from './Hybrids';
 import PartTimes from './PartTimes';
+import { useState } from 'react';
+import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri';
 
 
 const Banner = () => {
+    const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
+
+    const getNextReview = () => {
+        setCurrentReviewIndex((currentReviewIndex + 1) % reviews.length);
+    };
+    const getPrevReview = () => {
+        setCurrentReviewIndex((currentReviewIndex - 1 + reviews.length) % reviews.length);
+    };
+
+
+    const reviews = [
+        {
+            id: 1,
+            opinion1: " I am a successful employee . I have been using this website ever since",
+            reviewerName: "Kristy Mckenzie, Salon Pay"
+        },
+        {
+            id: 2,
+            opinion1: " Great responsiveness with built in quirks",
+            reviewerName: "Wendy Faire, Marketing Manager, Coffex Coffee Pty Ltd"
+        },
+        {
+            id: 3,
+            opinion1: "very easy to use. I have been hiring employee from this website. This website does not left me down",
+            reviewerName: "Austin Health"
+        }
+    ]
     return (
         <div>
 
@@ -30,7 +59,7 @@ const Banner = () => {
                 </div>
 
             </div>
-            <Tabs className={' md:text-base text-xs text-center w-full h-[800px] overflow-auto'}>
+            <Tabs className={' md:text-base text-xs text-center w-full'}>
                 <TabList className={'text-blue-500 font-semibold'}>
                     <Tab selectedClassName="selected-tab">All Jobs</Tab>
                     <Tab selectedClassName="selected-tab">On Site Job</Tab>
@@ -97,6 +126,18 @@ const Banner = () => {
                                 Thank you for choosing I Got the Job. Join us in this journey toward fulfilling career opportunities and building exceptional teams!</p>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div className="w-full h-96 lg:h-80 md:h-96">
+                <h1 className="lg:text-5xl md:text-4xl text-lg mt-20 text-blue-500 font-semibold text-center">See what our users say.</h1>
+                <div className="flex items-center justify-center gap-10 mt-6">
+                    <button className="bg-blue-300 p-2  rounded-md" onClick={getPrevReview}><RiArrowLeftSLine className="text-2xl hover:text-white text-gray-500 hover: "></RiArrowLeftSLine></button>
+                    <div className="flex flex-col md items-center justify-center md:w-[1200px]">
+                        <p className="text-center md:text-xl text-sm font-semibold">{reviews[currentReviewIndex].opinion1}</p>
+                        <p className="text-center md:text-base text-xs mt-3">{reviews[currentReviewIndex].reviewerName}</p>
+                    </div>
+                    <button className="bg-blue-300 p-2 rounded-md" onClick={getNextReview}><RiArrowRightSLine className="text-2xl hover:text-white text-gray-500 hover: "></RiArrowRightSLine></button>
+
                 </div>
             </div>
         </div>
