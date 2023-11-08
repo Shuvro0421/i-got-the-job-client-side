@@ -17,7 +17,7 @@ const MyJobs = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/jobs` , {credentials: 'include'})
+        fetch(`http://localhost:5000/jobs`)
             .then(res => res.json())
             .then(data => {
                 setAllJobs(data);

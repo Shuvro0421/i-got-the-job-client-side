@@ -1,12 +1,40 @@
-import Logo from '../assets/images/igotthejob.png'
+
+import { useState } from 'react';
+
 import { AiFillGithub, AiFillLinkedin } from 'react-icons/ai';
 import { FaRegHandshake } from 'react-icons/fa';
 
 
 
+
 const Footer = () => {
-    const handleSubmitReview = e =>{
+    const [success , setSuccess] = useState('')
+    const handleSubmitReview = e => {
         e.preventDefault()
+        
+
+        const form = e.target
+        const reviewerName = form.reviewerName.value
+        const opinion1 = form.opinion1.value
+        const reviewss = {reviewerName , opinion1}
+        setSuccess('')
+        fetch('http://localhost:5000/reviews', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(reviewss),
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                setSuccess('review added successfully!')
+                form.reset()
+            })
+            .catch(error => {
+                console.log(error)
+            })
+
     }
     return (
         <div>
@@ -20,6 +48,15 @@ const Footer = () => {
                     <header className="text-lg text-blue-500 font-semibold">Contact</header>
                     <a href='tel:+8801767739907' className="link link-hover">Phone: 01767739907</a>
                     <a href='mailto:adibarmanshuvro89@gmail.com' className="link link-hover">Email: adibarmanshuvro89@gmail.com</a>
+                </nav>
+                <nav>
+                    <header className="text-lg text-blue-500 font-semibold">Give us review</header>
+                    <form onSubmit={handleSubmitReview}>
+                        <input type="text" placeholder="name" name='reviewerName' className="input input-bordered w-full my-2" />
+                        <textarea className="textarea textarea-bordered w-full" name='opinion1' placeholder="your review"></textarea>
+                        <p className='text-blue-500 text-sm font-semibold text-left'>{success}</p>
+                        <input type="submit" className='btn btn-outline hover:bg-blue-500 hover:border-blue-500 text-blue-500 font-semibold hover:text-white normal-case w-full' value="Submit review" />
+                    </form>
                 </nav>
 
             </footer>

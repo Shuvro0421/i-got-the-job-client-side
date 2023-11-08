@@ -9,10 +9,20 @@ import Hybrids from './Hybrids';
 import PartTimes from './PartTimes';
 import { useState } from 'react';
 import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri';
+import { useEffect } from 'react';
 
 
 const Banner = () => {
     const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
+    const [reviews, setReviews] = useState([])
+
+
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/reviews`)
+            .then(res => res.json())
+            .then(data => setReviews(data))
+    }, [])
 
     const getNextReview = () => {
         setCurrentReviewIndex((currentReviewIndex + 1) % reviews.length);
@@ -22,23 +32,7 @@ const Banner = () => {
     };
 
 
-    const reviews = [
-        {
-            id: 1,
-            opinion1: " I am a successful employee . I have been using this website ever since",
-            reviewerName: "Kristy Mckenzie, Salon Pay"
-        },
-        {
-            id: 2,
-            opinion1: " Great responsiveness with built in quirks",
-            reviewerName: "Wendy Faire, Marketing Manager, Coffex Coffee Pty Ltd"
-        },
-        {
-            id: 3,
-            opinion1: "very easy to use. I have been hiring employee from this website. This website does not left me down",
-            reviewerName: "Austin Health"
-        }
-    ]
+
     return (
         <div>
 
@@ -132,10 +126,19 @@ const Banner = () => {
                 <h1 className="lg:text-5xl md:text-4xl text-lg mt-20 text-blue-500 font-semibold text-center">See what our users say.</h1>
                 <div className="flex items-center justify-center gap-10 mt-6">
                     <button className="bg-blue-300 p-2  rounded-md" onClick={getPrevReview}><RiArrowLeftSLine className="text-2xl hover:text-white text-gray-500 hover: "></RiArrowLeftSLine></button>
-                    <div className="flex flex-col md items-center justify-center md:w-[1200px]">
-                        <p className="text-center md:text-xl text-sm font-semibold">{reviews[currentReviewIndex].opinion1}</p>
-                        <p className="text-center md:text-base text-xs mt-3">{reviews[currentReviewIndex].reviewerName}</p>
+                    <div className="flex items-center justify-center gap-10 mt-6 w-[1200px] h-20 overflow-auto">
+
+                        <div className="flex flex-col items-center justify-center w-full max-w-lg">
+                            <p className="text-center md:text-xl text-sm font-semibold">
+                                {reviews.length > 0 && reviews[currentReviewIndex]?.opinion1}
+                            </p>
+                            <p className="text-center md:text-base text-xs mt-3">
+                                {reviews.length > 0 && reviews[currentReviewIndex]?.reviewerName}
+                            </p>
+                        </div>
+
                     </div>
+
                     <button className="bg-blue-300 p-2 rounded-md" onClick={getNextReview}><RiArrowRightSLine className="text-2xl hover:text-white text-gray-500 hover: "></RiArrowRightSLine></button>
 
                 </div>

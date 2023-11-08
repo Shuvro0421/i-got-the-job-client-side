@@ -28,7 +28,7 @@ const AddJobs = () => {
         const description = form.description.value
 
 
-        const jobs = { image, logo, title, name, category, salary, postingDate, applicationDeadline, applicantsNumber, description, companyName }
+        const jobs = { image, email:user.email , logo, title, name, category, salary, postingDate, applicationDeadline, applicantsNumber, description, companyName }
         console.log(jobs)
 
         // send data to the server 
