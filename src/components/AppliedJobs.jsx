@@ -13,13 +13,13 @@ const AppliedJobs = () => {
     const [selectedCategory, setSelectedCategory] = useState("all"); // Default value is "all"
 
     useEffect(() => {
-        fetch('http://localhost:5000/appliedJobs')
+        fetch(`http://localhost:5000/appliedJobs?email=${user?.email}`, {credentials:'include'})
             .then(res => res.json())
             .then(data => {
                 setAllJobs(data);
             })
             .catch(error => console.error('Error fetching jobs:', error));
-    }, []);
+    }, [user?.email]);
 
     const handleCategoryChange = (e) => {
         setSelectedCategory(e.target.value);
@@ -27,7 +27,7 @@ const AppliedJobs = () => {
 
     useEffect(() => {
         if (allJobs.length > 0) {
-            const filteredJobs = allJobs.filter(job => job?.name === user?.displayName);
+            const filteredJobs = allJobs?.filter(job => job?.name === user?.displayName);
             setMyJobs(filteredJobs);
         }
     }, [allJobs, user?.displayName]);

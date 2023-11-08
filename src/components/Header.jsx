@@ -12,6 +12,7 @@ import { useEffect } from "react";
 const Header = () => {
     const { user, logOut } = useContext(AuthContext)
     const [isOpen, setOpen] = useState(false)
+    
 
     const navigate = useNavigate()
     const location = useLocation()
