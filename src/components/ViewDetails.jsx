@@ -17,7 +17,7 @@ const ViewDetails = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/jobs')
+        fetch('https://i-got-the-job-server-9mfm31f86-adibs-projects-900c94ef.vercel.app/jobs')
             .then(res => res.json())
             .then(data => {
                 const singleDetail = data.find(single => single._id === id)
@@ -30,7 +30,7 @@ const ViewDetails = () => {
 
     useEffect(() => {
         // Fetch the user's applied jobs (assuming this endpoint exists)
-        fetch(`http://localhost:5000/appliedJobs?userId=${user.id}`)
+        fetch(`https://i-got-the-job-server-9mfm31f86-adibs-projects-900c94ef.vercel.app/appliedJobs?userId=${user.id}`)
             .then(res => res.json())
             .then(appliedJobs => {
                 // Check if the user has already applied for the current job
@@ -86,7 +86,7 @@ const ViewDetails = () => {
 
         setSuccess('')
         // send data to the server 
-        fetch(`http://localhost:5000/appliedJobs`, {
+        fetch(`https://i-got-the-job-server-9mfm31f86-adibs-projects-900c94ef.vercel.app/appliedJobs`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

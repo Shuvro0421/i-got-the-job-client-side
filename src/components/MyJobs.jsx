@@ -17,7 +17,7 @@ const MyJobs = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/jobs`)
+        fetch(`https://i-got-the-job-server-9mfm31f86-adibs-projects-900c94ef.vercel.app/jobs`)
             .then(res => res.json())
             .then(data => {
                 setAllJobs(data);
@@ -44,7 +44,7 @@ const MyJobs = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/jobs/${_id}`, {
+                fetch(`https://i-got-the-job-server-9mfm31f86-adibs-projects-900c94ef.vercel.app/jobs/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

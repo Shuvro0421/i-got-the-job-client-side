@@ -18,7 +18,7 @@ const Footer = () => {
         const opinion1 = form.opinion1.value
         const reviewss = {reviewerName , opinion1}
         setSuccess('')
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://i-got-the-job-server-9mfm31f86-adibs-projects-900c94ef.vercel.app/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

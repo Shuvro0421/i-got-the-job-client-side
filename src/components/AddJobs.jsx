@@ -32,7 +32,7 @@ const AddJobs = () => {
         console.log(jobs)
 
         // send data to the server 
-        fetch('http://localhost:5000/jobs', {
+        fetch('https://i-got-the-job-server-9mfm31f86-adibs-projects-900c94ef.vercel.app/jobs', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

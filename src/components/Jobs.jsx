@@ -4,7 +4,7 @@ import Job from './Job';
 const Jobs = () => {
     const [jobs, setJobs] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/jobs')
+        fetch('https://i-got-the-job-server-9mfm31f86-adibs-projects-900c94ef.vercel.app/jobs')
             .then(res => res.json())
             .then(data => { setJobs(data) })
             .catch(error => console.error('Error fetching jobs:', error));

@@ -60,7 +60,7 @@ const router = createBrowserRouter([
       {
         path:"/singleJob/:id",
         element: <UpdateJob></UpdateJob>,
-        loader: ({ params }) => fetch(`http://localhost:5000/jobs/singleJob/${params.id}`),
+        loader: ({ params }) => fetch(`https://i-got-the-job-server-9mfm31f86-adibs-projects-900c94ef.vercel.app/jobs/singleJob/${params.id}`),
       },
       {
         path: "/appliedJobs",
