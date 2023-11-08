@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { FaRegHandshake } from 'react-icons/fa';
 
 import 'react-tabs/style/react-tabs.css';
 import noUser from '../assets/images/no-user-image-icon-3.jpg'
@@ -12,7 +13,7 @@ import { useEffect } from "react";
 const Header = () => {
     const { user, logOut } = useContext(AuthContext)
     const [isOpen, setOpen] = useState(false)
-    
+
 
     const navigate = useNavigate()
     const location = useLocation()
@@ -67,7 +68,11 @@ const Header = () => {
                         {links}
                     </ul>
                 </div>
-                <Link to={'/'} className="btn btn-ghost normal-case text-xl hover:text-white text-blue-500">I Got The Job</Link>
+                <Link to={'/'} className="btn btn-ghost"><div className="flex items-center justify-self-start gap-2">
+                    <FaRegHandshake className='text-5xl text-blue-500'></FaRegHandshake>
+                    <p className='text-blue-500 font-semibold'>I Got The Job</p>
+                </div></Link>
+
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu  text-blue-500 font-semibold  menu-horizontal px-1">

@@ -17,13 +17,13 @@ const MyJobs = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/jobs')
+        fetch(`http://localhost:5000/jobs` , {credentials: 'include'})
             .then(res => res.json())
             .then(data => {
                 setAllJobs(data);
             })
             .catch(error => console.error('Error fetching jobs:', error));
-    }, []);
+    }, [user?.email]);
 
     useEffect(() => {
         if (allJobs.length > 0) {
