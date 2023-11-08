@@ -37,6 +37,7 @@ const AllJobs = () => {
             {
                 jobsJobs.map((allJob, index) => <AllJob key={index} allJob={allJob}></AllJob>)
             }
+
         </div>
     );
 };

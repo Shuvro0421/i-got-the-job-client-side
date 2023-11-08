@@ -97,7 +97,7 @@ const AppliedJobs = () => {
                         </div>
                     </div>
                 ) : (
-                    <div className="flex flex-col justify-center items-center gap-10">
+                    <div className="flex flex-col justify-center items-center my-20 gap-10">
                         <h1 className="text-blue-500 text-center md:mt-40 mt-24 md:text-4xl text-2xl font-semibold">Not Applied Yet...</h1>
                         <Link to={'/allJobs'}><button className="btn btn-outline hover:bg-blue-500 text-blue-500  font-semibold normal-case text-lg hover:border-none">Apply for a job +</button></Link>
                     </div>

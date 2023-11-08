@@ -14,10 +14,19 @@ const OnSiteJobs = () => {
             })
             .catch(error => console.error('Error fetching jobs:', error));
     }, []);
+    
+    const [seeAll, setSeeAll] = useState(false)
+    const handleSeeAll = () => {
+        setSeeAll(!seeAll)
+    }
     return (
         <div>
             {
-                onSiteJobs.map((onSiteJob, index) => <OnsiteJob key={index} onSiteJob={onSiteJob}></OnsiteJob>)
+                !seeAll ? onSiteJobs.slice(0, 4).map((onSiteJob, index) => <OnsiteJob key={index} onSiteJob={onSiteJob}></OnsiteJob>)
+                    : onSiteJobs.map((onSiteJob, index) => <OnsiteJob key={index} onSiteJob={onSiteJob}></OnsiteJob>)
+            }
+            {
+                onSiteJobs.length > 4 && <button onClick={handleSeeAll} className="btn btn-outline hover:bg-blue-500 hover:border-blue-500 text-blue-500 font-semibold hover:text-white normal-case">{seeAll ? 'see less' : 'see all'}</button>
             }
         </div>
     );

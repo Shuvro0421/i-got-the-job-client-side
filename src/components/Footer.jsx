@@ -67,7 +67,7 @@ const Footer = () => {
                     <p className='text-blue-500 font-semibold'>I Got The Job</p>
                 </aside>
 
-                <aside className="md:justify-self-center ">
+                <aside className="md:justify-self-center mt-3">
                     <p>Copyright © 2023 - All right reserved by Md. Adib Arman Shuvro</p>
                 </aside>
 

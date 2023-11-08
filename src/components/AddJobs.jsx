@@ -59,7 +59,7 @@ const AddJobs = () => {
             <form className="mt-28 shadow-2xl  md:w-4/5 md:mt-28 w-4/5 rounded-lg bg-blue-300 bg-opacity-30" onSubmit={handleAddJob}>
                 <div className="grid md:grid-cols-2 gap-2 p-5 grid-cols-1 items-center justify-center ">
                     <input className="p-2 bg-gray-200 placeholder-slate-500 mt-2 rounded-lg" type="text" name="image" id="" placeholder="picture url of job banner..." defaultValue={'https://img.freepik.com/premium-vector/we-are-hiring-with-vacant-chair-illustration-job-advertising-banner_177160-1332.jpg'} />
-
+                    
                     <input className="p-2 bg-gray-200 placeholder-slate-500 mt-2 rounded-lg" type="text" name="logo" id="" placeholder="logo url of company..." defaultValue={'https://i.ibb.co/ysj23kw/no-image.jpg'} />
 
                     <input className="p-2 bg-gray-200 placeholder-slate-500 mt-2 rounded-lg" type="text" name="title" id="" placeholder="job title..." />
