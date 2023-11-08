@@ -19,7 +19,7 @@ const Banner = () => {
 
 
     useEffect(() => {
-        fetch(`https://i-got-the-job-server-9mfm31f86-adibs-projects-900c94ef.vercel.app/reviews`)
+        fetch(`https://i-got-the-job-server.vercel.app/reviews`)
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [])

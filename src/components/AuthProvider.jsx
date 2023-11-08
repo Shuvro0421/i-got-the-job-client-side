@@ -40,7 +40,7 @@ const AuthProvider = ({ children }) => {
             // if user exist then issue a token
             if (currentUser) {
 
-                axios.post('https://i-got-the-job-server-9mfm31f86-adibs-projects-900c94ef.vercel.app/jwt', loggedUser, { withCredentials: true })
+                axios.post('https://i-got-the-job-server.vercel.app/jwt', loggedUser, { withCredentials: true })
                     .then(res => {
                         console.log('token response', res.data);
                         // Handle token response here if needed
@@ -50,7 +50,7 @@ const AuthProvider = ({ children }) => {
                     });
             }
             else {
-                axios.post('https://i-got-the-job-server-9mfm31f86-adibs-projects-900c94ef.vercel.app/logout', loggedUser, {
+                axios.post('https://i-got-the-job-server.vercel.app/logout', loggedUser, {
                     withCredentials: true
                 })
                     .then(res => {

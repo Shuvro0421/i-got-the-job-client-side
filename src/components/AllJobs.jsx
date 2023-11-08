@@ -11,7 +11,7 @@ const AllJobs = () => {
 
 
     useEffect(() => {
-        fetch('https://i-got-the-job-server-9mfm31f86-adibs-projects-900c94ef.vercel.app/jobs')
+        fetch('https://i-got-the-job-server.vercel.app/jobs')
             .then(res => res.json())
             .then(data => { setAllJobs(data) })
             .catch(error => console.error('Error fetching jobs:', error));

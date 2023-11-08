@@ -29,7 +29,7 @@ const UpdateJob = () => {
         console.log(jobs)
 
         // send data to the server 
-        fetch(`https://i-got-the-job-server-9mfm31f86-adibs-projects-900c94ef.vercel.app/jobs/singleJob/${_id}`, {
+        fetch(`https://i-got-the-job-server.vercel.app/jobs/singleJob/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

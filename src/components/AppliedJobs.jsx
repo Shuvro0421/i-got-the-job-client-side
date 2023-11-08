@@ -13,7 +13,7 @@ const AppliedJobs = () => {
     const [selectedCategory, setSelectedCategory] = useState("all"); // Default value is "all"
 
     useEffect(() => {
-        fetch(`https://i-got-the-job-server-9mfm31f86-adibs-projects-900c94ef.vercel.app/appliedJobs?email=${user?.email}`, {credentials:'include'})
+        fetch(`https://i-got-the-job-server.vercel.app/appliedJobs?email=${user?.email}`, { credentials: 'include' })
             .then(res => res.json())
             .then(data => {
                 setAllJobs(data);
@@ -103,7 +103,7 @@ const AppliedJobs = () => {
                     </div>
                 )
             }
-            
+
         </div>
     );
 };
