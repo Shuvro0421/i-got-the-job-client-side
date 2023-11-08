@@ -1,10 +1,13 @@
 import Logo from '../assets/images/igotthejob.png'
-import { AiFillGithub , AiFillLinkedin } from 'react-icons/ai';
+import { AiFillGithub, AiFillLinkedin } from 'react-icons/ai';
 import { FaRegHandshake } from 'react-icons/fa';
 
 
 
 const Footer = () => {
+    const handleSubmitReview = e =>{
+        e.preventDefault()
+    }
     return (
         <div>
             <footer className="footer p-10 bg-base-200 text-base-content">
@@ -20,9 +23,11 @@ const Footer = () => {
                 </nav>
                 <nav>
                     <header className="text-lg text-blue-500 font-semibold">Give us review</header>
-                    <input type="text" placeholder="name" className="input input-bordered w-full max-w-xs" />
-                    <textarea className="textarea textarea-bordered w-full" placeholder="your review"></textarea>
-                    <input type="submit" className='btn btn-outline hover:bg-blue-500 hover:border-blue-500 text-blue-500 font-semibold hover:text-white normal-case w-full' value="Submit review" />
+                    <form onSubmit={handleSubmitReview}>
+                        <input type="text" placeholder="name" className="input input-bordered w-full my-2" />
+                        <textarea className="textarea textarea-bordered w-full" placeholder="your review"></textarea>
+                        <input type="submit" className='btn btn-outline hover:bg-blue-500 hover:border-blue-500 text-blue-500 font-semibold hover:text-white normal-case w-full' value="Submit review" />
+                    </form>
                 </nav>
 
             </footer>
@@ -33,14 +38,16 @@ const Footer = () => {
                     <p className='text-blue-500 font-semibold'>I Got The Job</p>
                 </aside>
 
-                <aside className="md:justify-self-center">
+                <aside className="md:justify-self-center ">
                     <p>Copyright © 2023 - All right reserved by Md. Adib Arman Shuvro</p>
                 </aside>
 
                 <nav className="md:place-self-center md:justify-self-end mr-10">
                     <div className="grid grid-flow-col gap-4">
-                        <a href='https://github.com/Shuvro0421'><AiFillGithub className='text-3xl text-blue-500'></AiFillGithub></a>
-                        <a href='www.linkedin.com/in/adib-arman-shuvro-085a701b9'><AiFillLinkedin className='text-3xl text-blue-500'></AiFillLinkedin></a>
+                        <a href="https://github.com/Shuvro0421"><AiFillGithub className='text-3xl text-blue-500'></AiFillGithub></a>
+                        <a href="https://www.linkedin.com/in/adib-arman-shuvro-085a701b9">
+                            <AiFillLinkedin className='text-3xl text-blue-500' />
+                        </a>
                     </div>
                 </nav>
 
